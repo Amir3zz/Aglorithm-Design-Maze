@@ -142,6 +142,19 @@ def print_cell_vertex_mapping(graph: MazeGraph) -> None:
         print(f"vertex {v} -> cell({r}, {c})")
     print()
 
+def print_explanation_answer():
+    print("Answer to number 7:")
+    print(
+        "An adjacency list is better for sparse maze graphs because each open "
+        "cell usually connects to only a few neighboring cells (maximum of 4: "
+        "up, down, left, and right). This means the number of edges is much "
+        "smaller than the total possible connections in the graph. "
+        "An adjacency list only stores existing connections, making it more "
+        "memory-efficient. In contrast, an adjacency matrix stores all possible "
+        "connections, resulting in many unused 0 values and wasting memory. "
+        "Adjacency lists are also more efficient for BFS and DFS traversal "
+        "because the algorithm only checks actual neighbors of a vertex."
+    )
 
 def main() -> None:
     maze, rows, cols = read_maze_from_stdin()
@@ -158,6 +171,7 @@ def main() -> None:
     print_cell_vertex_mapping(graph)
     print_adjacency_list(graph.adjacency_list)
     print_adjacency_matrix(graph.adjacency_matrix)
+    print_explanation_answer()
 
 
 if __name__ == "__main__":
